@@ -1,0 +1,58 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IwazoLab Lexicon</title>
+    <link rel="stylesheet" href="/static/css/output.css">
+    <link rel="stylesheet" href="/static/css/tailwind.css">
+</head>
+<body>
+    <div class="bg-gray-100">
+        <nav class="bg-indigo-950 text-white shadow-lg">
+            <div class="container mx-auto px-4 py-3">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center">
+                        <img src="/static/images/iwazoLab.png" alt="IwazoLab Logo" style="height: 3rem" class="mr-4">
+                        <h1 class="text-3xl font-bold">IwazoLab Lexicon</h1>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <section class="bg-gray-100 py-8 md:py-16">
+            <div class="container mx-auto px-4">
+                <form class="mt-4 md:mt-8 lg:mx-20" action="/scrape" method="POST">
+                    <div class="text-center mb-4 md:mb-8">
+                        <h3 class="text-2xl md:text-4xl font-bold mb-2 md:mb-4">Welcome to IwazoLab Fintech Lexicon</h3>
+                        <p class="text-base md:text-lg text-gray-600 mb-2 md:mb-4">Bringing to you this easy-to-use software by IwazoLab. Making data collection easy!</p>
+                        <p class="text-base md:text-lg text-gray-600 mb-2 md:mb-4">Paste the URL of your Journal Article/Blog/Social Media Post along with the entire text</p>
+                    </div>
+                    <div class="mb-4 md:mb-6">
+                        <label for="url" class="block text-lg md:text-xl font-semibold mb-2">URL:</label>
+                        <input type="text" id="url" name="url" class="w-full border border-gray-300 rounded-md px-3 py-2 md:px-4 md:py-2 focus:outline-none focus:border-blue-400" placeholder="Enter URL">
+                    </div>
+                    <div class="mb-4 md:mb-6">
+                        <label for="text" class="block text-lg md:text-xl font-semibold mb-2">Text from Source:</label>
+                        <textarea id="text" name="text" rows="6" class="w-full border border-gray-300 rounded-md px-3 py-2 md:px-4 md:py-2 focus:outline-none focus:border-blue-400" placeholder="Paste text here"></textarea>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="bg-blue-900 text-white px-4 md:px-6 py-2 md:py-3 rounded-lg font-semibold text-lg md:text-xl hover:bg-blue-600 focus:outline-none focus:bg-blue-600">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+      {% if success_message %}
+    <div class="alert alert-success" role="alert">
+        {{ success_message }}
+    </div>
+{% endif %}
+{% if error_message %}
+    <div class="alert alert-danger" role="alert">
+        {{ error_message }}
+    </div>
+{% endif %}
+
+    </div>
+</body>
+</html>
